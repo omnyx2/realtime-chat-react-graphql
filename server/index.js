@@ -46,7 +46,9 @@ const resolvers = {
           subscribe: (_, args, { pubsub }) => {
               const channel = Math.random().toString(36).slice(2, 15);
               onMessagesUpdates(() => pubsub.publish(channel, { messages }))
-              console.log(channel)
+              console.log("--------")
+              console.log("channel:" + channel)
+              console.log(pubsub)
               setTimeout(() => pubsub.publish(channel, {messages}), 0)
               return pubsub.asyncIterator(channel)
           } 
